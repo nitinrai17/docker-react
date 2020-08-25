@@ -3,7 +3,7 @@ services:
     - docker
 
 before-install:
-    - docker build -t nitinrai17/docker-react -f Dockerfile . 
+    - docker build -t nitinrai17/docker-react . 
     
 script:
     - docker run -e CI=true nitinrai17/docker-react npm run test -- --coverage
