@@ -1,4 +1,4 @@
-FROM node:alpine as build-deps
+FROM node:alpine
 
 WORKDIR '/app'
 
@@ -15,7 +15,7 @@ FROM nginx
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build-deps /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
 
 EXPOSE 80
 
